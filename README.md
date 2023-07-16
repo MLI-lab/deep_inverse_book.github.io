@@ -8,4 +8,4 @@ I'm in the process of writing a book on Deep Learning for Inverse Problems, base
 
 If you find any errors, typos, or if parts are unclear, or if you have any other actionable feedback, please report them here, along with version of the draft where you found the issue:
 
-[https://github.com/MLI-lab/deep_inverse_book.github.io/issues](Issues)
+[Issues](https://github.com/MLI-lab/deep_inverse_book.github.io/issues)
