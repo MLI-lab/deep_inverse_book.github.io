@@ -6,6 +6,12 @@ Copyright 2023 by Reinhard Heckel.
 
 I'm in the process of writing a book on Deep Learning for Inverse Problems, based on lectures notes from the course Deep Learning for Inverse Problems. 
 
-If you find any errors, typos, or if parts are unclear, or if you have any other actionable feedback, please report them here, along with version of the draft where you found the issue:
+If you find any errors, typos, or if parts are unclear, or if you have any other actionable feedback, please report them as an [issue here](https://github.com/MLI-lab/deep_inverse_book.github.io/issues), along with version of the draft where you found the issue.
 
-[Issues](https://github.com/MLI-lab/deep_inverse_book.github.io/issues)
+
+Here are jupyter notebooks to reproduce some of the figures. You can run the notebooks on **Google Colab**.
+
+| Title |  Notebook |
+|-|:-:|
+| Coordinate based image fitting  | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MLI-lab/deep_inverse_book.github.io/blob/main/code/coordinate_based_image_fitting.ipynb) | 
+
