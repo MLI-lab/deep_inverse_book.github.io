@@ -11,7 +11,9 @@ If you find any errors, typos, or if parts are unclear, or if you have any other
 
 Here are jupyter notebooks to reproduce some of the figures. You can run the notebooks on **Google Colab**.
 
-| Title |  Notebook |
-|-|:-:|
-| Coordinate based image fitting  | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MLI-lab/deep_inverse_book.github.io/blob/main/code/coordinate_based_image_fitting.ipynb) | 
+Chapter| Title |  Notebook |
+|-|:-:|:-:|
+1 (Fig. 1.5), 3 (Fig. 3.1) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MLI-lab/deep_inverse_book.github.io/blob/main/code/deblurring_example.ipynb) |
+11 (Fig. 11.1, Fig. 11.3) | Coordinate based image fitting  | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MLI-lab/deep_inverse_book.github.io/blob/main/code/coordinate_based_image_fitting.ipynb) | 
+
 
