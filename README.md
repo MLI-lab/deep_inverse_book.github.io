@@ -1,10 +1,10 @@
 # deep_inverse_book.github.io
 
-Companion webpage to the book draft "Deep Learning for Inverse Problems".
+Companion webpage to the book draft "Deep Learning for Computational Imaging".
 
-Copyright 2023 by Reinhard Heckel.
+Copyright 2024 by Reinhard Heckel.
 
-I'm in the process of writing a book on Deep Learning for Inverse Problems, based on lectures notes from the course Deep Learning for Inverse Problems. 
+I'm in the process of writing a book on Deep Learning for Computational Imaging, based on lectures notes from the course Deep Learning for Inverse Problems. The book will be published by Oxford University Press in 2024 or early 2025. 
 
 If you find any errors, typos, or if parts are unclear, or if you have any other actionable feedback, please report them as an [issue here](https://github.com/MLI-lab/deep_inverse_book.github.io/issues), along with version of the draft where you found the issue.
 
