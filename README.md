@@ -2,7 +2,7 @@
 
 Companion webpage to the book "Deep Learning for Computational Imaging".
 
-The book will be published by Oxford University Press in late 2024 or early 2025. 
+The book will be published by Oxford University Press early 2025. 
 
 Here is the [pdf of the book draft](/assets/deep_inverse_reader.pdf), copyright 2024 by Reinhard Heckel.
 
