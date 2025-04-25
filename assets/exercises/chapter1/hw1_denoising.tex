@@ -1,0 +1,84 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots} 
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{pgfplots,pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+\usepackage{amssymb,amsthm}
+
+\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage{bm}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\usepackage{thmtools}
+\declaretheoremstyle[%headfont=\normalfont
+]{normalhead}
+\declaretheorem[style=normalhead]{problem}
+\declaretheorem[style=normalhead]{solution}
+
+\usepackage{../rh_defs}
+
+
+\begin{document}
+
+\center{\large \sc Deep Learning and Inverse Problems\\ April 2025}\\ 
+Reinhard Heckel    
+\center{ {\bf Problem Set 1} \\
+\vspace{0.2cm}
+%\begin{tabular}{l l}
+%Issued: & Tuesday April~29, 2025, 1:00 pm. \\
+%Due: & Tuesday May~6, 2025, 1:00 pm.
+%\end{tabular}
+}
+
+{\rule{\linewidth}{.2mm}}
+
+
+\problem[Denoising]{
+In the first chapter, we saw that signal models are central for solving inverse problems. Here, we consider a denoising problem and show that for a $n$-dimensional signal that lies in a $k$-dimensional subspace, we can remove a fraction of $\frac{n-k}{n}$ of additive Gaussian noise.
+
+Consider a signal $\vx^\ast \in \reals^n$ that lies in a $k$-dimensional subspace, and suppose we are given a noisy measurement 
+\[
+\vy = \vx^\ast + \vz,
+\]
+where $\vz$ is zero-mean Gaussian noise with co-variance matrix $(\sigma^2/n)\mI$. 
+Let $\mU \in \reals^{n\times k}$ be an orthonormal basis of the signal subspace. We denoise the signal by projecting the measurement onto the subspace, i.e., we consider the estimate 
+$\hat \vx = \mU \transp{\mU} \vy$.
+\begin{enumerate}
+\item Show that
+\[
+\EX{\norm[2]{\hat \vx - \vx^\ast}^2} 
+=
+\sigma^2 \frac{k}{n},
+\]
+where expectation is over the random noise $\vz$.
+
+{\bf Hint:} Recall that if $\mV \in \reals^{n\times n}$ is a unitary matrix (i.e., a matrix with orthonormal columns) and $\vz$ has iid, zero-mean Gaussian entries, then $\mV \vz$ has the same distribution as $\vz$. 
+\item 
+Does the estimator $\hat \vx = \mU \transp{\mU}\vy$ remove more noise as the subspace dimension shrinks? And intuitively, do you think a better denoising algorithm exists?
+\item 
+Next, we study this denoising algorithm numerically (ideally with python in a jupyter notebook using the libary numpy; if you are not familiar with those, this exercise is a good exercise to familiarize yourself). 
+
+Generate a random $k$-dimensional subspace in $\reals^{1000}$, and generate 500 random points in that subspace. Next, denoise each of those data points with the estimator above, and plot the average of the mean-squared error $\norm[2]{ \hat \vx - \vx^\ast }^2 / \norm[2]{\vx^\ast }^2$ along with corresponding standard deviations as error bar for different values of $k = 1,100,200,\ldots, 1000$. 
+
+We intentionally did not specify the method for generating a random subspace or for sampling points within it; you are encouraged to make a reasonable choice.
+\end{enumerate}
+}
+
+
+
+
+
+
+
+\end{document}

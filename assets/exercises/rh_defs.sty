@@ -1,0 +1,135 @@
+%Reinhard's new definitions
+
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{rays_defs}[2010/02/09]
+\RequirePackage{amsmath,amssymb,ifthen,color,framed}
+
+\usepackage{mathtools}
+
+\usepackage{framed}
+\newcommand\CommentKeep[1]{\framebox[\textwidth]{ \parbox{\textwidth}{#1} }}
+
+\newcommand{\Tnorm}{}
+\newcommand\norm[2][\Tnorm]{\ensuremath{{\left\|#2\right\|}_{#1}}}
+
+\newcommand\Tinnerprod{}
+\newcommand{\innerprod}[3][\Tinnerprod]{\ifthenelse{\equal{#1}{}}{\ensuremath{\left<#2,#3\right>}}{\ensuremath{\left<#2,#3\right>_{#1}}}}
+
+
+\newcommand\Tex{}
+\newcommand\PR[2][\Tex]{
+\ifthenelse{\equal{#1}{}}{{\mathrm{P}}\left[#2\right]}{\ensuremath{{\mathrm{P}}_{#1}\left[ #2\right]}}}
+
+\newcommand\EX[2][\Tex]{
+\ifthenelse{\equal{#1}{}}{{\mathbb E}\left[#2\right]}{\ensuremath{{\mathbb E}_{#1}\left[ #2\right]}}}
+
+\newcommand\Var[2][\Tex]{
+\ifthenelse{\equal{#1}{}}{{\mathrm Var}\left[#2\right]}{\ensuremath{{\mathrm Var}_{#1}\left[ #2\right]}}}
+
+\newcommand{\pinv}[1]{  {#1}^{ \dagger } } % Pseudoinverse
+\newcommand{\inv}[1]{  {#1}^{ -1 } } % Inverse of a matrix
+\newcommand{\conj}[1]{ {#1}^* } % complex conjungate of a matrix
+\newcommand{\herm}[1]{{#1}^H} % conjungate transpose of a matrix
+\newcommand{\transp}[1]{{#1}^T} % transpose of a matrix
+%\newcommand{\trace}{\text{tr}}
+%\newcommand{\diag}{\text{diag}}
+
+%%%%
+
+
+\newcommand\defeq{\coloneqq}
+
+\newcommand{\vbed}{\bm \beta} % I substituted the \bm \beta' by \bm beta, so there are not double superscripts,
+
+
+
+\newcommand{\vnu}{ {\bm \nu}} 
+\newcommand{\vth}{ {\bm \theta}} 
+\newcommand{\vla}{ {\bm \lambda}} 
+\newcommand{\vep}{\bm \epsilon}
+\newcommand{\vbe}{\bm \beta}
+\newcommand{\mSi}{\bm \Sigma}
+\newcommand{\vsi}{\bm \sigma}
+\newcommand{\mTh}{\bm \Theta}
+\newcommand{\mPh}{\bm \Phi}
+
+
+\newcommand\vect[1]{\mathbf #1}
+
+\newcommand{\va}{\vect{a}}  
+\newcommand{\vb}{\vect{b}}
+\newcommand{\vc}{\vect{c}}  
+\newcommand{\vd}{\vect{d}}  
+\newcommand{\ve}{\vect{e}}
+\newcommand{\vf}{\vect{f}}  
+\newcommand{\vg}{\vect{g}}  
+\newcommand{\vh}{\vect{h}}
+\newcommand{\vi}{\vect{i}}  
+\newcommand{\vj}{\vect{j}}  
+\newcommand{\vk}{\vect{k}}
+\newcommand{\vl}{\vect{l}}  
+\newcommand{\vm}{\vect{m}}  
+\newcommand{\vn}{\vect{n}}
+\newcommand{\vo}{\vect{o}}  
+\newcommand{\vp}{\vect{p}}  
+\newcommand{\vq}{\vect{q}}
+\newcommand{\vr}{\vect{r}}  
+\newcommand{\vs}{\vect{s}}  
+\newcommand{\vt}{\vect{t}}
+\newcommand{\vu}{\vect{u}}  
+\newcommand{\vv}{\vect{v}}  
+\newcommand{\vw}{\vect{w}}
+\newcommand{\vx}{\vect{x}}  
+\newcommand{\vy}{\vect{y}}  
+\newcommand{\vz}{\vect{z}}
+
+
+\newcommand{\mA}{\vect{A}}  
+\newcommand{\mB}{\vect{B}} 
+\newcommand{\mC}{\vect{C}} 
+\newcommand{\mD}{\vect{D}}
+\newcommand{\mE}{\vect{E}}
+\newcommand{\mF}{\vect{F}}
+\newcommand{\mG}{\vect{G}}
+\newcommand{\mH}{\vect{H}}
+\newcommand{\mI}{\vect{I}}
+\newcommand{\mJ}{\vect{J}}
+\newcommand{\mK}{\vect{K}}
+\newcommand{\mL}{\vect{L}}
+\newcommand{\mM}{\vect{M}}
+\newcommand{\mN}{\vect{N}}
+\newcommand{\mO}{\vect{O}}
+\newcommand{\mP}{\vect{P}}
+\newcommand{\mQ}{\vect{Q}}
+\newcommand{\mR}{\vect{R}}
+\newcommand{\mS}{\vect{S}}
+\newcommand{\mT}{\vect{T}}
+\newcommand{\mU}{\vect{U}}
+\newcommand{\mV}{\vect{V}}
+\newcommand{\mW}{\vect{W}}
+\newcommand{\mX}{\vect{X}}
+\newcommand{\mY}{\vect{Y}}
+\newcommand{\mZ}{\vect{Z}}
+
+\newcommand{\mLa}{ {\bm \Lambda}} 
+\newcommand\mSig{\bm \Sigma}
+
+
+\renewcommand{\S}{\mathcal S}
+
+
+ \newcommand{\complexset}{\mathbb C}
+ \newcommand{\reals}{\mathbb R}
+ 
+ 
+ \newcommand{\J}{J}
+   \newcommand{\mc}{\mathcal}
+   \newcommand{\mb}{\mathbb}
+
+   \newcommand{\spn}{\mathrm span}
+   \newcommand{\entryop}[2]{\left[ #1 \right]_{#2}}
+   \newcommand\comp[1]{ {#1}^c}
+
+
+\newcommand\ind[1]{\mathds{1}\{#1\}}

@@ -16,3 +16,9 @@ Chapter| Title |  Notebook |
 12 (Fig. 12.1, Fig. 12.3) | Coordinate based image fitting  | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MLI-lab/deep_inverse_book.github.io/blob/main/code/coordinate_based_image_fitting.ipynb) | 
 
 
+The folder [exercises](/assets/exercises/) contains exercises for each chapter.
+If you are an instructor using these exercises for your course, I’m happy to provide solutions—just send me an email. 
+
+| Chapter | Exercise |
+|---------|----------|
+| 1       | [Denoising](/assets/exercises/chapter1/hw1_denoising.pdf) |
