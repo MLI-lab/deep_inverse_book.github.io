@@ -1,0 +1,101 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots} 
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{pgfplots,pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+
+\usepackage{amssymb,amsthm}
+
+
+
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{epsfig}
+\usepackage{bm}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{float}
+
+
+\usepackage{thmtools}
+\declaretheoremstyle[%headfont=\normalfont
+]{normalhead}
+\declaretheorem[style=normalhead]{problem}
+\declaretheorem[style=normalhead]{solution}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\usepackage{../rh_defs}
+
+\newcommand\setG{\mc G}
+\newcommand\vmu{\bm \mu}
+\newcommand\mSigma{\bm \Sigma}
+
+
+\begin{document}
+
+\center{\large \sc Deep Learning and Inverse Problems \\ Summer 2025}
+
+Reinhard Heckel    
+\center{ {\bf Problem Set 2 - Chapter 3} 
+
+Issued: Thursday May~6, 2025 \\
+Due: Thursday May~13, 2025. \\[1em]
+
+{\rule{\linewidth}{.2mm}}
+
+\begin{problem}[Proximal gradient method for sparse reconstruction] 
+In this problem, we numerically solve a variant of $\ell_1$-minimization for sparse reconstruction. Consider the following $\ell_1$-norm regularized least-squares regression problem:
+\begin{align*}
+\text{minimize}_{\vx} 
+g(\vx),
+\quad
+g(\vx) = \frac{1}{2} \norm[2]{\mA \vx - \vy}^2 + \lambda \norm[1]{\vx}.
+\end{align*}
+
+
+We take $\mA \in \reals^{2000\times 1000}$ as a Gaussian random matrix with entries of zero mean and unit variance, and let $\vy = \mA \vx + \ve$, where $\ve$ is zero mean Gaussian noise with variance $0.1$, and $\vx$ is $100$-sparse with Gaussian entries, again zero mean and unit variance. 
+Choose the regularization parameter $\lambda$ so that the solution is sparse.  \\
+
+\begin{itemize}
+\item[(a)]
+An algorithm to solve this optimization problem numerically is the Iterated Soft Thresholding Algorithm (ISTA), which is an proximal gradient descent algorithm. 
+Define $f(\vx) = \frac{1}{2}\norm[2]{\mA \vx - \vy}^2$, and $\nabla f(\vx)$ denotes the gradient of $f$ at $\vx$. 
+The ISTA algorithm starts at a random initial point $\vx^0$ and then iterates:
+\begin{align*}
+\vx^{k}
+&=
+\tau_{\lambda \eta}( \vx^k - \eta \nabla f(\vx^k) ).
+\end{align*}
+Here, $\eta$ is a stepsize parameter, and $\tau$ is the soft thresholding operator, which is applied entrywise and is defined as
+\begin{align*}
+\tau_\lambda(x)
+=
+\begin{cases}
+x + \lambda, & \text{ if } x < - \lambda,\\
+0, & \text{ if } x \in [-\lambda,\lambda],\\
+x - \lambda, & \text{ if } x > \lambda.\\
+\end{cases}
+\end{align*}
+Implement the ISTA algorithm, and provide a plot of convergence of the ISTA algorithm. Plot the objective at iteration $k$ vs the minimal objective, i.e.,  $g(\vx^{k}) - g(\vx^\ast)$ over the number of iterations, $k$. The minimizer $\vx^\ast$ can be obtained by running the algorithm until convergence. 
+\item[(b)]
+Next, take $\mA \in \reals^{500 \times 2000}$ as a Gaussian random matrix with zero-mean entries. 
+Generate random $k$-sparse vectors $\vx^\ast \in \reals^{2000}$ (as before, take the non-zeros as zero-mean Gaussian) for $k$ ranging from $1$ to $500$ in some suitably chosen steps, and explore numerically for which values of $k$, recovery of $\vx^\ast$ is possible from the underdetermined measurement $\vy = \mA \vx^\ast$ by solving the least-squares regression problem numerically. Note that you need to tune the regularization parameter $\lambda$ appropriately. One approach to do so is to perform a grid search of the best parameter $\lambda$ on a logarithmic scale.
+\end{itemize}
+\end{problem}
+
+
+\end{document}
+
