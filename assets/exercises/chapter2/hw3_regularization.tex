@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots} 
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{pgfplots,pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+
+\usepackage{amssymb,amsthm}
+
+
+
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{epsfig}
+\usepackage{bm}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{float}
+
+
+
+\usepackage{thmtools}
+\declaretheoremstyle[%headfont=\normalfont
+]{normalhead}
+\declaretheorem[style=normalhead]{problem}
+\declaretheorem[style=normalhead]{solution}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\usepackage{../rh_defs}
+
+\newcommand\setG{\mc G}
+\newcommand\vmu{\bm \mu}
+\newcommand\mSigma{\bm \Sigma}
+\renewcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+\newcommand{\diag}[1]{\text{diag}\left(#1\right)}
+
+% \newcommand{\SHOWSOLUTION}[1]{}
+\newcommand{\SHOWSOLUTION}[1]{#1}
+\newcommand{\expec}{\mathbb{E}}
+
+
+
+\begin{document}
+
+\center{\large \sc Deep Learning and Inverse Problems \\ Summer 2025}   
+
+Reinhard Heckel    
+\center{ {\bf Problem Set 3} %\\ Fall 2016}
+\vspace{0.2cm}
+
+%\begin{tabular}{l l r l}
+%Issued: & Tuesday May~13, 2025, 1:00 pm. \\
+%Due: & Tuesday May~20, 2025, 1:00 pm. \\[1em]
+%\end{tabular}
+}
+
+{\rule{\linewidth}{.2mm}}
+
+\vspace{4mm}
+%
+
+
+%\input{../../problems/CS_spikes+random.tex}
+
+\begin{problem}[Tikhonov-Regularized Least-Squares]	
+Let $\mA \in \reals^{n\times n}$ be an invertible matrix, and let $\vy = \mA \vx^* + \ve$ be a noisy measurement of a signal $\vx^* \in \reals^n$. Here, $\ve \sim \mathcal{N}(\mathbf{0}, \sigma^2 \mI)$ is a Gaussian noise term. In this problem, we discuss the regularized least-squares estimator
+		\begin{equation}
+		\label{eq:reg_ls_problem}
+			\hat{\vx}_\lambda(\vy) = \argmin_\vx \norm{\mA \vx - \vy}_2^2 + \lambda \norm{\vx}_2^2,
+		\end{equation}
+	of the true signal $\vx^*$. Here, the factor $\lambda \geq 0$ is the regularization parameter. 
+	
+	\begin{enumerate}[(a)]
+		\item Consider the singular-value decompositon $\mA = \mU \mSigma \mV^T$ of the matrix $\mA$. Here $\mU, \mV \in \mathbb{R}^{n \times n}$ are orthonormal and $\mSigma$ is  a diagonal matrix with $\mSigma = \diag{\sigma_1,...,\sigma_n}$. Show that for all $\lambda \geq 0$ and for a fixed measurement $\vy$, the vector
+			\begin{equation*}
+				\hat{\vx}_\lambda (\vy) = \mV \diag{\frac{\sigma_1}{\sigma_1^2+\lambda}, ..., \frac{\sigma_n}{\sigma_n^2+\lambda}} \mU^T \vy
+			\end{equation*}
+		is a solution of the regularized least-squares problem \eqref{eq:reg_ls_problem}.
+		\item Is the solution from part (a) the unique minimizer? If yes, why? If no, state another minimizer. 
+		
+		%(\textbf{Hint:} Strict convexity.)
+		\item  Show that the expected mean-squared error $\EX{  \norm{\hat{\vx}_\lambda(\vy) - \vx^*}_2^2 }$, where expectation is over the random noise $\ve$, of the estimator $\hat{\vx}_\lambda(\vy)$ satisfies
+			\begin{equation*}
+				\EX{ \norm{\hat{\vx}_\lambda(\vy) - \vx^*}_2^2 } = \sum_{i=1}^n \left( 1 - \frac{\sigma_i^2}{\sigma_i^2+\lambda} \right)^2 (\vv_i^T \vx^*)^2 + \sigma^2 \sum_{i=1}^n \left( \frac{\sigma_i}{\sigma_i^2+\lambda}\right)^2,
+			\end{equation*}
+		where $\vv_i \in \reals^n$ denotes the $i$-th column of the matrix $\mV$. 		
+		
+		\textbf{Hint:} First use the result from (a) to show that
+			\begin{equation*}
+				\hat{\vx}_\lambda (\vy) = \mV \diag{\frac{\sigma_1^2}{\sigma_1^2+\lambda}, ..., \frac{\sigma_n^2}{\sigma_n^2+\lambda}} \mV^T \vx^* +  \mV \diag{\frac{\sigma_1}{\sigma_1^2+\lambda}, ..., \frac{\sigma_n}{\sigma_n^2+\lambda}} \mU^T \ve.
+			\end{equation*}
+		
+		\item Assume you know a good regularization parameter $\bar{\lambda}$ for the noise $\ve \sim \mathcal{N}(\mathbf{0}, \bar{\sigma}^2)$. If we change the noise model to $\ve \sim \mathcal{N}(\mathbf{0}, \tilde{\sigma}^2)$ with $\tilde{\sigma}^2 > \bar{\sigma}^2$, how would you adapt the regularization parameter $\lambda$? Would you make it larger or smaller than $\bar{\lambda}$? Justify your answer!
+	\end{enumerate}	
+\end{problem}
+
+
+\begin{problem}[Regularizing Deconvolution]
+	Here, we numerically solve the deblurring problem discussed in Figure 2.1 of the book. For simplicity, we consider the 1D case. Let $\vx^* \in \mathbb{R}^n$ be a 1D signal. Let $\mA \in \reals^{n\times n}$ be the matrix that implements convolution with the Gaussian kernel from Figure~2.1 of the notes. We want to use Tikhonov reulgarization to recover the signal $\vx^*$ from a noisy measurement $\vy = \mA \vx^* + \ve$, where $\ve$ is Gaussian noise. In this problem, your task is to write code to reproduce the bias-variance tradeoff (Figure~2.1 of the lecture notes). To that end, implement the matrix $\mA$ to carry out the Gaussian convolution and make use of the results derived in problem~1.
+	
+	\textbf{Hint:} Feel free to use generative AI models such as Copilot or ChatGPT to help you with the coding.
+	
+\end{problem}
+
+\end{document}
+
