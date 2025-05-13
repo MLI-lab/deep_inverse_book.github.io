@@ -22,5 +22,6 @@ If you are an instructor using these exercises for your course, I’m happy to p
 | Chapter | Exercise |
 |---------|----------|
 | 1       | [Denoising](/assets/exercises/chapter1/hw1_denoising.pdf) |
-| 3       | [Proximal gradient descent](/assets/exercises/chapter2/hw2_gradient_descent) |
+| 2       | [Regularized least squares](/assets/exercises/chapter2/hw3_regularization.pdf) |
+| 3       | [Proximal gradient descent](/assets/exercises/chapter3/hw2_gradient_descent.pdf) |
 | 4       | [Sparse reconstruction](/assets/exercises/chapter4/ch4_exercises_sparsity.pdf) |
