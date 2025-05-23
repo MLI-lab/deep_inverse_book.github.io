@@ -25,3 +25,4 @@ If you are an instructor using these exercises for your course, I’m happy to p
 | 2       | [Regularized least squares](/assets/exercises/chapter2/hw3_regularization.pdf) |
 | 3       | [Proximal gradient descent](/assets/exercises/chapter3/hw2_gradient_descent.pdf) |
 | 4       | [Sparse reconstruction](/assets/exercises/chapter4/ch4_exercises_sparsity.pdf) |
+| 6       | Denoising with Unet [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MLI-lab/deep_inverse_book.github.io/blob/main/assets/exercises/chapter6/denoising_unet.ipynb) |
